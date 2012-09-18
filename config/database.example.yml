@@ -1,0 +1,18 @@
+
+defaults : &defaults
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  password:
+
+development:
+  <<: *defaults
+  database: SeoAuditer_development
+
+test: &TEST
+  <<: *defaults
+  database: SeoAuditer_test
+
+production:
+  <<: *defaults
+  database: SeoAuditer_production
