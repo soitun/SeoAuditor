@@ -38,7 +38,10 @@ describe AuditsController do
 
     context "with invalid params" do
       let(:invalid_params) { { :project_id => project.to_param } }
-      before { expect { post :create, invalid_params }.to_not change(Audit, :count).by(1) }
+      before do
+        Audit.any_instance.stub(:save).and_return(false)
+        expect { post :create, invalid_params }.to_not change(Audit, :count).by(1)
+      end
 
       it { should render_template :new }
     end
