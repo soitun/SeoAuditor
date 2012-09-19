@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Project Page" do
   let(:project) { Factory.create(:project) }
-  
+
   it "creating projects" do
     visit new_project_path
 
