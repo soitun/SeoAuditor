@@ -9,10 +9,11 @@ class KeywordAuditor
 
   def perform
     doc = Nokogiri::HTML(open(uri))
+    body = doc.at('body')
     results = {}
 
     keywords.each do |keyword|
-      occurences = doc.content.downcase.scan(keyword.name).count
+      occurences = body.inner_text.downcase.scan(keyword.name).count
       results.merge!(keyword.name => occurences)
     end
 
