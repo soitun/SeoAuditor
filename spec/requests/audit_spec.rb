@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe "Audits" do
   let(:project) { Factory.create :project }
-  before { Factory.create(:keyword, :name => "agile", :project => project) }
+  let!(:keyword) { Factory.create(:keyword, :name => "agile", :project => project) }
+  before { stub_request_and_return_dummy_html(project.domain) }
 
   it "Creating and showing a new audit" do
     visit new_project_audit_path project
@@ -10,7 +11,10 @@ describe "Audits" do
     click_button "Perform Audit"
 
     current_path.should eql project_audit_path(project, Audit.last)
-    page.should have_content "The keyword \"agile\" has been used 2 times in this document."
+    within "table" do
+      page.should have_content keyword.name
+      page.should have_content "2"
+    end
   end
 end
 

@@ -1,8 +1,9 @@
 require 'spec_helper'
+require 'keyword_auditor'
 
 describe AuditsController do
   let(:project) { Factory.create(:project) }
-	
+
   describe "GET 'new'" do
     before { get :new, :project_id => project.to_param }
 
@@ -12,11 +13,20 @@ describe AuditsController do
   end
 
   describe "POST 'create'" do
+    before { stub_request_and_return_dummy_html(project.domain) }
+
     context "in general" do
+      let!(:keyword) { Factory.create(:keyword, :project => project, :name => "agile") }
       before { post :create, :project_id => project.to_param }
 
       it { should assign_to :project }
       it { should assign_to :audit }
+      it "should associate the keyword and the audit" do
+        project.audits.last.keywords.should include keyword
+      end
+      it "should set the number of occurences of the keyword on the KeywordAudit" do
+        project.audits.last.keyword_audits.last.occurences.should eql 2
+      end
     end
 
     context "with valid params" do
