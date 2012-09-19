@@ -8,6 +8,11 @@ FactoryGirl.define do
   	association :project
   end
 
+  factory :keyword_audit do
+    association :audit
+    association :keyword
+  end
+
   factory :project do
   	sequence(:name) 	{ |n| "Test Project #{n}" }
   	sequence(:domain) 	{ |n| "http://www.example#{n}.com" }
