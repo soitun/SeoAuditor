@@ -35,3 +35,8 @@ RSpec.configure do |config|
     FakeWeb.allow_net_connect = false
   end
 end
+
+def stub_request_and_return_dummy_html(uri)
+  page_body = File.open('spec/fixtures/test_html_document.html').read
+  FakeWeb.register_uri(:get, uri, :body => page_body)
+end
