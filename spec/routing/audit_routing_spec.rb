@@ -23,7 +23,7 @@ describe AuditsController, 'routing' do
   end
 
   it "should route to the show action" do
-    { :post => "/projects/#{project.to_param}/audits/#{audit.to_param}" }.
+    { :get => "/projects/#{project.to_param}/audits/#{audit.to_param}" }.
     should route_to(
       :project_id => project.to_param,
       :id => audit.to_param,
