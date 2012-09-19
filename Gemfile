@@ -15,7 +15,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'shoulda'
+  gem 'shoulda', '>= 3.0.0.beta'
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'fakeweb'

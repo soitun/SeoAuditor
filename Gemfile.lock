@@ -138,7 +138,11 @@ GEM
       ffi (~> 1.0.9)
       json_pure
       rubyzip
-    shoulda (2.11.3)
+    shoulda (3.0.0.beta2)
+      shoulda-context (~> 1.0.0.beta1)
+      shoulda-matchers (~> 1.0.0.beta1)
+    shoulda-context (1.0.0)
+    shoulda-matchers (1.0.0)
     sprockets (2.0.4)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -172,5 +176,5 @@ DEPENDENCIES
   rspec-rails
   ruby-debug
   sass-rails (~> 3.1.4)
-  shoulda
+  shoulda (>= 3.0.0.beta)
   uglifier (>= 1.0.3)
