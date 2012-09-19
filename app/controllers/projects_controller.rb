@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-  # before_filter :fetch_project
 
 	def show
   end
