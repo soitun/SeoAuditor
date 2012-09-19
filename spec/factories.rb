@@ -10,6 +10,6 @@ FactoryGirl.define do
 
   factory :project do
   	sequence(:name) 	{ |n| "Test Project #{n}" }
-  	sequence(:domain) 	{ |n| "www.example#{n}.com" }
+  	sequence(:domain) 	{ |n| "http://www.example#{n}.com" }
   end
 end
