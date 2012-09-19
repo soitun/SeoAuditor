@@ -7,11 +7,11 @@ describe "Project Page" do
     visit new_project_path
 
     fill_in "Name", :with => "Unboxed"
+    fill_in "Domain", :with => "http://www.unboxedconsulting.com"
     click_button "Add Project"
 
-    page.should have_content "Project successfully created."
-    within "table" do
-      page.should have_selector "td", :text => "Unboxed"
-    end
+    # TODO - flash messages
+    # page.should have_content "Project successfully created."
+    page.should have_selector "h1", :text => "Unboxed"
   end
 end

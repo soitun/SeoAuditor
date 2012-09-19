@@ -1,1 +1,3 @@
-<%= link_to "New Audit", new_audit_path %>
+<h1><%= @project.name %></h1>
+
+<%= link_to "New Audit", new_project_audit_path(@project) %>
