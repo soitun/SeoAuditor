@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'keyword_auditor'
 
 describe AuditsController do
   let(:project) { Factory.create(:project) }
