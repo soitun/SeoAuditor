@@ -4,6 +4,7 @@ gem 'rails', '3.1.1'
 gem 'mysql2'
 gem 'jquery-rails'
 gem 'json'
+gem 'nokogiri'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
@@ -17,5 +18,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'launchy'
   gem 'factory_girl_rails'
+  gem 'fakeweb'
+
   gem 'ruby-debug'
 end
