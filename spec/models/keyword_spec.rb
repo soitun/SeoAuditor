@@ -4,6 +4,8 @@ describe Keyword do
 
   context "associations" do
     it { should belong_to :project }
+    it { should have_many :keyword_audits }
+    it { should have_many(:audits).through :keyword_audits }
   end
 
 	context "validations" do

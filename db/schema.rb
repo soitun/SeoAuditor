@@ -10,10 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918194316) do
+ActiveRecord::Schema.define(:version => 20120919103404) do
 
   create_table "audits", :force => true do |t|
     t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "keyword_audits", :force => true do |t|
+    t.integer  "audit_id"
+    t.integer  "keyword_id"
+    t.integer  "occurences"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
